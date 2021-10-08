@@ -26,7 +26,7 @@ $  source venv/scripts/activate
 $  source venv/bin/activate
 3. Clone this project
 
-$  git clone 
+$  git clone https://github.com/mehedihasan555552/Django-Practical-Test.git
 # Then, Enter the project
 
 $  cd django-student-management-system
