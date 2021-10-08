@@ -1,0 +1,53 @@
+{% extends 'base/main.html' %}
+
+
+{% block content %}
+
+
+<div class="  text-center jumbotron container-fluid">
+    <h1 class="display-4">Django Practical Test</h1>
+    
+  </div>
+
+<br><br><br>
+  <div class="container">
+
+    
+        <div class="card-group">
+            {% for plan in plans %}
+            <div class="card">
+            
+            <div class="card-body">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">{{plan.title}}</h4>
+                  </div>
+
+                  <div class="card-body">
+                    <h1 class="card-title pricing-card-title">BDT {{plan.price}} <small class="text-muted">/ mo</small></h1>
+                    <ul class="list-unstyled mt-3 mb-4">
+                      <li>{{plan.text}}</li>
+                    </ul>
+                    <a href="{% url 'checkout' %}?plan={{plan.package}}"><button type="button" class="btn btn-lg btn-block btn-outline-primary">Get started</button></a>
+                  </div>
+                </div>
+            </div>
+
+            {% endfor %}
+
+            
+
+
+           
+        </div>
+
+
+  </div>
+
+
+
+
+  
+  
+
+
+{% endblock %}

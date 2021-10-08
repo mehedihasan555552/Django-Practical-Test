@@ -1,0 +1,93 @@
+{% extends 'base/main.html' %}
+{% block content %}
+
+
+<main role="main" class="container">
+  <br>
+    <div class="container">
+        {% if cancel_at_period_end %}
+        <h5 class="card-body">membership will run to the end of your billing cycle.</h5> 
+        {% elif membership %}
+        <form action="{% url 'settings' %}" method="POST">
+          {% csrf_token %}
+          <input type="submit" class="btn btn-danger" value="Cancel Membership?">
+        </form>
+        {% else %}
+        <a href="{% url 'index' %}">Get a membership</a>
+        {% endif %}
+      </div>
+    
+  
+    <div class="my-3 p-3 bg-white rounded shadow-sm">
+      <h6 class="border-bottom border-gray pb-2 mb-0">Package Information</h6>
+      <div class="media text-muted pt-3">
+        
+        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+          <strong class="d-block text-gray-dark"></strong>
+        
+         {% for i in customer %}
+
+         <div class="alert alert-primary" role="alert">
+          Name : {{i.user.name}}
+        </div>
+         
+         <div class="alert alert-primary" role="alert">
+          Phone Number : {{i.user.phone_number}}
+        </div>
+
+        <div class="alert alert-primary" role="alert">
+          Email : {{i.user.email}}
+        </div>
+
+        
+
+         
+        {% if i.customer.stripe_subscription_id == 'price_1JiGJgEcjDyQJdh0J2Hgi3k1' %}
+
+        <div class="alert alert-primary" role="alert">
+          Package : Bronze 500 BDT /Month
+        </div>
+
+        {% elif i.stripe_subscription_id == 'price_1JiGJgEcjDyQJdh0pLWYKrJC' %}
+
+        <div class="alert alert-primary" role="alert">
+          Package : Silver  750 BDT /Month
+        </div>
+
+        {% else  %}
+
+        <div class="alert alert-primary" role="alert">
+          Package : Gold  1500 BDT /Month
+        </div>
+
+        {% endif %}
+
+        
+         {% if i.membership == True %}
+         <div class="alert alert-primary" role="alert">
+          Membership : Premium
+        </div>
+
+        {% else %}
+
+        <div class="alert alert-primary" role="alert">
+          Membership : None
+        </div>
+
+        {% endif %}
+
+         {% endfor %}
+        </p>
+      </div>
+      
+      
+      
+    </div>
+  
+    
+      
+      
+    </div>
+  </main>
+
+{% endblock %}
