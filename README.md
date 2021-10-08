@@ -18,16 +18,16 @@ $  python -m venv venv
 $  python3 -m venv venv
 Activate Virtual Environment
 
-For Windows
+# For Windows
 
 $  source venv/scripts/activate
-For Mac
+# For Mac
 
 $  source venv/bin/activate
 3. Clone this project
 
 $  git clone 
-Then, Enter the project
+# Then, Enter the project
 
 $  cd django-student-management-system
 4. Install Requirements from 'requirements.txt'
@@ -50,7 +50,7 @@ Command for Mac:
 $ python3 manage.py runserver
 7. Login Credentials
 
-Create Super User (HOD)
+# Create Super User (HOD)
 
 $  python manage.py createsuperuser
 Then Add Email, Username and Password
