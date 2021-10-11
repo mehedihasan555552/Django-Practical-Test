@@ -29,7 +29,8 @@ $  source venv/bin/activate
 $  git clone https://github.com/mehedihasan555552/Django-Practical-Test.git
 # Then, Enter the project
 
-$  cd django-student-management-system
+$  cd Django-Practical-Test
+
 4. Install Requirements from 'requirements.txt'
 
 $  pip install -r requirements.txt
